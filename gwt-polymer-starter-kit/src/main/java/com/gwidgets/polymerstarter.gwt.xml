@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='polymerstarter'>
+                    
+  <inherits name='com.google.gwt.user.User' />     
+  <inherits name='com.google.gwt.place.Place'/>
+   <inherits name='com.google.gwt.activity.Activity' />                   
+  <inherits name='com.google.gwt.user.theme.standard.Standard' />
+  <inherits name="com.vaadin.polymer.Elements"/>
+  <inherits name="com.google.gwt.inject.Inject"/>
+  <inherits name='com.google.gwt.query.Query' />
+
+   <replace-with class="com.gwidgets.client.ClientFactoryImpl">
+    <when-type-is class="com.gwidgets.client.ClientFactory"/>
+   </replace-with>
+
+  <entry-point class='com.gwidgets.client.PolymerStarter' />
+
+  <source path='client' />
+  <source path='ui' />
+   <source path='places' />
+   <source path='activities' />
+
+</module>
