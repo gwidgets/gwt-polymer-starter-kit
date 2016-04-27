@@ -27,8 +27,6 @@ public class MainPageActivity extends AbstractActivity implements MainPage.Prese
 	@Override
 	public void start(AcceptsOneWidget panel, EventBus bus) {
 		panel.setWidget(mainPage);
-		//MenuButtonClickEvent();
-		
 	}
 	
 	public void refreshPlace(Place place){
