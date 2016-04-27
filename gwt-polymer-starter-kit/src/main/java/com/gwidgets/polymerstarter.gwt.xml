@@ -6,7 +6,6 @@
    <inherits name='com.google.gwt.activity.Activity' />                   
   <inherits name='com.google.gwt.user.theme.standard.Standard' />
   <inherits name="com.vaadin.polymer.Elements"/>
-  <inherits name="com.google.gwt.inject.Inject"/>
   <inherits name='com.google.gwt.query.Query' />
 
    <replace-with class="com.gwidgets.client.ClientFactoryImpl">
