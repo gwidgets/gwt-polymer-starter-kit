@@ -31,7 +31,7 @@ The application uses GWT Activities and Places to handle routing and section cha
 
 ## Dependency Injection 
 
-There are two versions so far. The version that uses DI is under the forlder.  Google Dagger 2 is used for dependency, as GIN is outdated and not maintained anymore. Annotations are automatically processed after running mvn compile. The maven build-helper-maven-plugin automatically adds the generated classes to the classpath at build time. 
+There are two versions so far. The version that uses DI is under the directory gwt-polymer-starter-kit-with-di.  Google Dagger 2 is used for dependency injection, as GIN is outdated and not maintained anymore. Annotations are automatically processed after running mvn compile. The maven build-helper-maven-plugin automatically adds the generated classes to the classpath at build time. 
 
 ## License
 
