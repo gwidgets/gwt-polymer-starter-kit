@@ -1,0 +1,98 @@
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+
+	<ui:style>
+	  
+	</ui:style>
+	<div>
+
+    <paper-drawer-panel id="paperDrawerPanel">
+      <!-- Drawer Scroll Header Panel -->
+      <paper-scroll-header-panel drawer="" fixed=""> 
+      
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span class="menu-name">Menu</span>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu attr-for-selected="data-route" selected="home" ui:field="paperMenu">
+          <a data-route="home" class="link" ui:field="homeLink">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
+          </a>
+
+          <a data-route="users" class="link" ui:field="usersLink">
+            <iron-icon icon="info"></iron-icon>
+            <span>Users</span>
+          </a>
+
+          <a data-route="contact" class="link" ui:field="contactLink">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact</span>
+          </a>
+          
+        </paper-menu>
+      </paper-scroll-header-panel>
+
+      <!-- Main Area -->
+       <paper-scroll-header-panel main="" id="headerPanelMain" condenses="" keep-condensed-header="">
+   
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar" class="tall">
+           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle=""></paper-icon-button> 
+          
+
+          <span class="space"></span>
+
+          <!-- Toolbar icons -->
+          <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button icon="search"></paper-icon-button>
+
+          <!-- Application name -->
+          <div class="middle middle-container">
+            <div class="app-name">GWT Polymer Starter Kit</div>
+          </div>
+
+          <!-- Application sub title -->
+          <div class="bottom bottom-container">
+            <div class="bottom-title">description</div>
+          </div>
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class="content">
+          <iron-pages attr-for-selected="data-route" selected="home" ui:field="ironPages">
+            <section  data-route="home">
+              <paper-material class="mainContent" elevation="1">
+                <h2>Home</h2>
+                <p>For copyright and license, checkout the project's Github page: 
+                
+                <a href="https://github.com/gwidgets/gwt-polymer-starter-kit">https://github.com/gwidgets/gwt-polymer-starter-kit</a></p>
+              </paper-material>
+              
+            </section>
+            
+            <section  data-route="users">
+              <paper-material class="mainContent" elevation="1">
+                <h2>Users</h2>
+                <p>This is the users section</p>
+              </paper-material>
+            </section>
+            
+             <section  data-route="contact">
+              <paper-material class="mainContent" elevation="1">
+                <h2>Contact</h2>
+                <p>This is the contact section</p>
+              </paper-material>
+            </section>
+          </iron-pages>
+        </div>
+      </paper-scroll-header-panel>
+    </paper-drawer-panel>
+
+	
+	</div>
+	
+</ui:UiBinder>

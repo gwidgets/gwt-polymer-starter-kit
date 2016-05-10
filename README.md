@@ -8,6 +8,11 @@ gwt-polymer-starter kit is an adaptation of the [Polymer Starter Kit](https://gi
 
 To use the dev mode, a turnaroud is required. The Polymer elements should be imported manually in the polymerstarter.html page rather than using Polymer.importHref(""). The required imports are grouped into: dev-imports.html, and already added to the header of page. Also, the entry point (PolymerStarter.java) has two versions: a dev mode version and a production version, one of them needs to be commented out depending on the environement you are using.  
 
+Before the first run and after each clean
+```sh
+mvn compile package 
+```
+after the first run, there is no need for mvn compile package
 ```sh
 mvn gwt:run
 ```
@@ -23,6 +28,10 @@ mvn clean gwt:compile package
 ## Browser Histroy management
 
 The application uses GWT Activities and Places to handle routing and section change.  
+
+## Dependency Injection 
+
+There are two versions so far. The version that uses DI is under the forlder.  Google Dagger 2 is used for dependency, as GIN is outdated and not maintained anymore. Annotations are automatically processed after running mvn compile. The maven build-helper-maven-plugin automatically adds the generated classes to the classpath at build time. 
 
 ## License
 

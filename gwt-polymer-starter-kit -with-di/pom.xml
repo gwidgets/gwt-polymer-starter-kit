@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>gwt-polymer-starter-kit-with-di</groupId>
+  <artifactId>gwt-polymer-starter-kit-with-di</artifactId>
+  <packaging>war</packaging>
+  <version>0.1</version>
+  
+   <name>GWT Polymer Starter Kit </name>
+  <url>https://github.com/gwidgets/gwt-polymer-starter-kit</url>
+  <description>GWT Polymer Starter Kit - A starting point for developing Web applications using GWT and Polymer</description>
+  <organization>
+  	<name>G-Widgets</name>
+  	<url>www.g-widgets.com</url>
+  </organization>
+  
+  <repositories>
+       <repository>
+         <id>sonatype-snapshots</id>
+         <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+         <snapshots><enabled>true</enabled></snapshots>
+         <releases><enabled>false</enabled></releases>
+       </repository>
+       <repository>
+         <id>gwt-snapshots-tmp-repo</id>
+         <url>https://github.com/manolo/gwt-snapshot/raw/master/</url>
+         <snapshots><enabled>true</enabled></snapshots>
+         <releases><enabled>true</enabled></releases>
+       </repository>
+       <repository>
+         <id>google-snapshots</id>
+         <url>https://oss.sonatype.org/content/repositories/google-snapshots/</url>
+         <snapshots><enabled>true</enabled></snapshots>
+       </repository>
+    </repositories>
+    
+   <pluginRepositories>
+      <pluginRepository>
+        <id>sonatype-snapshots</id>
+        <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+        <snapshots><enabled>true</enabled></snapshots>
+        <releases><enabled>false</enabled></releases>
+      </pluginRepository>
+    </pluginRepositories>
+
+  <properties>
+    <gwtVersion>2.8.0.VC-SNAPSHOT</gwtVersion>
+     <gwtPolymerVersion>1.2.1.0</gwtPolymerVersion>
+      <war>${project.build.directory}</war>
+    <webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
+    <!-- GWT needs at least java 1.7 -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.google.gwt</groupId>
+        <artifactId>gwt</artifactId>
+        <version>${gwtVersion}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-servlet</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-user</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.gwt</groupId>
+      <artifactId>gwt-dev</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+            <groupId>com.vaadin.polymer</groupId>
+            <artifactId>vaadin-gwt-polymer-elements</artifactId>
+            <version>${gwtPolymerVersion}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.gwtquery</groupId>
+            <artifactId>gwtquery</artifactId>
+            <version>1.4.4-SNAPSHOT</version>
+            <scope>provided</scope>
+               <exclusions>
+              <exclusion>
+                <groupId>com.google.gwt</groupId>
+                <artifactId>gwt-elemental</artifactId>
+              </exclusion>
+            </exclusions> 
+        </dependency>
+        <dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			 <version>1</version>
+       </dependency> 
+        <dependency>
+           <groupId>com.google.dagger</groupId>
+	       <artifactId>dagger-gwt</artifactId>
+           <version>2.5-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+ 	      <groupId>com.google.dagger</groupId>
+	      <artifactId>dagger-compiler</artifactId>
+          <version>2.5-SNAPSHOT</version>
+       </dependency>
+  </dependencies>
+
+  <build>
+    <!-- Output classes directly into the webapp, so that IDEs and "mvn process-classes" update them in DevMode -->
+    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+
+    <plugins>
+ 
+      <!-- Mojo's Maven Plugin for GWT -->
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>gwt-maven-plugin</artifactId>
+        <version>2.8.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+        <!-- Plugin configuration. There are many available options, see 
+          gwt-maven-plugin documentation at codehaus.org -->
+        <configuration>
+          <runTarget>polymerstarter.html</runTarget>
+          <modules>
+            <module>com.gwidgets.polymerstarter</module>
+          </modules>
+          <localWorkers>1</localWorkers>
+             <hostedWebapp>${webappDirectory}</hostedWebapp>
+          <warSourceDirectory>${war}</warSourceDirectory>
+          <jsInteropMode>JS</jsInteropMode>
+         <!--  <generateJsInteropExports>true</generateJsInteropExports> -->
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <executions>
+          <execution>
+            <phase>compile</phase>
+          </execution>
+        </executions>
+        <configuration>
+          <webappDirectory>${webappDirectory}</webappDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.3.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>build-helper-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>generate-sources</phase>
+            <goals>
+                <goal>add-source</goal>
+            </goals>
+            <configuration>
+                <sources>
+                    <source>${project.build.directory}/generated-sources/annotations</source>
+                </sources>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+    </plugins>
+  </build>
+ 
+</project>
