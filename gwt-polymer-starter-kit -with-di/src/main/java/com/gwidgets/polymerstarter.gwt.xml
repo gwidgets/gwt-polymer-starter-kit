@@ -5,7 +5,6 @@
   <inherits name='com.google.gwt.place.Place'/>
    <inherits name='com.google.gwt.activity.Activity' />                   
   <inherits name="com.vaadin.polymer.Elements"/>
-  <inherits name='com.google.gwt.query.Query' />
   <inherits name="dagger.Dagger" />
 
    <replace-with class="com.gwidgets.client.ClientFactoryImpl">
