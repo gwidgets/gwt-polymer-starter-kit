@@ -2,6 +2,7 @@ package com.gwidgets.places;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
+import com.google.gwt.place.shared.Prefix;
 
 
 public class ContactPlace extends Place {
@@ -16,6 +17,7 @@ public class ContactPlace extends Place {
 		return name;
 	}
 
+	@Prefix("!")
 	 public static class Tokenizer implements PlaceTokenizer<ContactPlace> {
 	        @Override
 	        public String getToken(ContactPlace place) {
