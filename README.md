@@ -6,20 +6,17 @@ gwt-polymer-starter kit is an adaptation of the [Polymer Starter Kit](https://gi
 
 * Dev Mode:
 
-To use the dev mode, a turnaroud is required. The Polymer elements should be imported manually in the polymerstarter.html page rather than using Polymer.importHref(""). The required imports are grouped into: dev-imports.html, and already added to the header of page. Also, the entry point (PolymerStarter.java) has two versions: a dev mode version and a production version, one of them needs to be commented out depending on the environement you are using.  
-
+  
 Before the first run and after each clean
 ```sh
-mvn compile package 
+mvn package gwt:run
 ```
-after the first run, there is no need for mvn compile package
+after the first run, there is no need for mvn package
 ```sh
 mvn gwt:run
 ```
 
 * Production:
-
-To deploy the application to production, the dev-imports in the polymerstarter.html can be commented out. The entry point (PolymerStarter.java) part reseverd for dev mode can also be commented out. 
 
 ```sh
 mvn clean gwt:compile package
@@ -31,7 +28,7 @@ The application uses GWT Activities and Places to handle routing and section cha
 
 ## Dependency Injection 
 
-There are two versions so far. The version that uses DI is under the directory gwt-polymer-starter-kit-with-di.  Google Dagger 2 is used for dependency injection, as GIN is outdated and not maintained anymore. Annotations are automatically processed after running mvn compile. The maven build-helper-maven-plugin automatically adds the generated classes to the classpath at build time. 
+There are two versions so far. The version that uses DI is under the directory gwt-polymer-starter-kit-with-di.  Google Dagger 2 is used for dependency injection, as GIN is outdated and not maintained anymore. Annotations are automatically processed after running mvn compile.
 
 ## License
 
@@ -56,4 +53,4 @@ This is the license published by the polymer-starter-kit project team:
 
 ## GWT version
 
-The project uses version 2.8.0-SNAPSHOT of GWT, as gwt-polymer-elements is not yet compatible with 2.8.0-beta1. 
+The project uses version 2.8.0-rc1 
