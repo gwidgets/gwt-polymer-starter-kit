@@ -33,9 +33,7 @@ public class PolymerStarter implements EntryPoint {
 				        historyHandler.register(controller, bus, homePlace);
 				        
 				        clientFactory.getMainPageView().initializeEvents(controller);
-				        
-				        HTMLElement shell = (HTMLElement) Polymer.getDocument().getElementById("shell");
-				        shell.setAttribute("display", "none");
+
 				        RootPanel.get().add(appWidget);
 				       
 				        historyHandler.handleCurrentHistory();				        
