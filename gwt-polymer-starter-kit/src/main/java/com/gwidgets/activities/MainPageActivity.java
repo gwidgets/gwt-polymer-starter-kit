@@ -31,8 +31,7 @@ public class MainPageActivity extends AbstractActivity implements MainPage.Prese
 	
 	public void refreshPlace(Place place){
 		this.currentPlace = place;
-		
-		GWT.log(place.toString());
+
 		
 		if(place instanceof HomePlace){
 			placeChangeWithoutClickEvent("home");

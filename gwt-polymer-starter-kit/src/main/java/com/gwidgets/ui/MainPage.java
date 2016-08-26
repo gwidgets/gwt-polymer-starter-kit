@@ -2,11 +2,13 @@ package com.gwidgets.ui;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.AnchorElement;
+import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Event;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.gwt.user.client.ui.UIObject;
@@ -16,7 +18,9 @@ import com.gwidgets.places.HomePlace;
 import com.gwidgets.places.UsersPlace;
 import com.vaadin.polymer.Polymer;
 import com.vaadin.polymer.iron.IronPagesElement;
+import com.vaadin.polymer.paper.PaperDrawerPanelElement;
 import com.vaadin.polymer.paper.PaperMenuElement;
+import com.vaadin.polymer.paper.widget.PaperDrawerPanel;
 
 public class MainPage extends Composite {	
 	
@@ -30,6 +34,8 @@ public class MainPage extends Composite {
     AnchorElement contactLink;
 	@UiField
 	IronPagesElement ironPages;
+
+	
 
 
 
@@ -56,6 +62,7 @@ public class MainPage extends Composite {
 	           	 ironPages.select("contact");
 	           	 paperMenu.select("contact");
 		           	controller.goTo(new ContactPlace("contact"));
+		           	slideDrawerIfMobile();
 
 	            }  
 	        });
@@ -65,6 +72,7 @@ public class MainPage extends Composite {
 	            	ironPages.select("home");
 	            	paperMenu.select("home");
 	           	controller.goTo(new HomePlace("home"));
+	           	slideDrawerIfMobile();
 	            }  
 	        });
 		 
@@ -73,6 +81,7 @@ public class MainPage extends Composite {
            	 ironPages.select("users");
            	 paperMenu.select("users");
            	       controller.goTo(new UsersPlace("users"));
+           	    slideDrawerIfMobile();
            	    
             }  
    });
@@ -108,6 +117,14 @@ public class MainPage extends Composite {
 	public interface Presenter {
 		//handles clicking on back and forward buttons of the browser
 		public void placeChangeWithoutClickEvent(String placeName);
+	}
+	
+	private void slideDrawerIfMobile(){
+		if( Window.getClientWidth() < 600 ){
+			PaperDrawerPanelElement drawer = (PaperDrawerPanelElement) Polymer.getDocument().getElementById("paperDrawerPanel");
+			drawer.closeDrawer();
+		}
+		
 	}
 
 }
