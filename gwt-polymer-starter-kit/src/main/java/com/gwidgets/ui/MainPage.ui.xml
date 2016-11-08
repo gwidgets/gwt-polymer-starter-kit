@@ -5,7 +5,7 @@ xmlns:g='urn:import:com.google.gwt.user.client.ui'>
 	<ui:style>
 	  
 	</ui:style>
-	<div>
+	<g:HTMLPanel>
 
     <paper-drawer-panel id="paperDrawerPanel">
       <!-- Drawer Scroll Header Panel -->
@@ -93,6 +93,6 @@ xmlns:g='urn:import:com.google.gwt.user.client.ui'>
     </paper-drawer-panel>
 
 	
-	</div>
+	</g:HTMLPanel>
 	
 </ui:UiBinder>

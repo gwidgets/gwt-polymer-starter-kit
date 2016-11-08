@@ -42,11 +42,11 @@ public class MainPage extends Composite {
 	private static MainPageUiBinder uiBinder = GWT
 			.create(MainPageUiBinder.class);
 
-	interface MainPageUiBinder extends UiBinder<Element, MainPage> {
+	interface MainPageUiBinder extends UiBinder<Widget, MainPage> {
 	}
 
 	public MainPage() {
-		setElement(uiBinder.createAndBindUi(this));
+		initWidget(uiBinder.createAndBindUi(this));
 
 		Polymer.endLoading(this.getElement(), (Element) paperMenu);
 	}
