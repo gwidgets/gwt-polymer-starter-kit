@@ -16,8 +16,8 @@ public class UsersPlace extends Place{
 	public String getName() {
 		return name;
 	}
-     
-	 @Prefix("§")
+
+	@Prefix("§")
 	 public static class Tokenizer implements PlaceTokenizer<UsersPlace> {
 	        @Override
 	        public String getToken(UsersPlace place) {

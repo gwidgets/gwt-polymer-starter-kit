@@ -9,6 +9,8 @@ import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.Event;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.UIObject;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwidgets.places.ContactPlace;
 import com.gwidgets.places.HomePlace;
@@ -31,16 +33,16 @@ public class MainPage extends Composite {
 	@UiField
 	IronPagesElement ironPages;
 
+
 	private static MainPageUiBinder uiBinder = GWT
 			.create(MainPageUiBinder.class);
 
-	interface MainPageUiBinder extends UiBinder<Widget, MainPage> {
+	interface MainPageUiBinder extends UiBinder<Element, MainPage> {
 	}
 
 	public MainPage() {
-		initWidget(uiBinder.createAndBindUi(this));
-        GWT.debugger();
-		Polymer.endLoading(this.getElement(), (Element) paperMenu);
+		setElement(uiBinder.createAndBindUi(this));
+         GWT.log("creating main page");
 	}
 	
 	
@@ -72,8 +74,8 @@ public class MainPage extends Composite {
             if(Event.ONCLICK == e.getTypeInt()) {
            	 ironPages.select("users");
            	 paperMenu.select("users");
-           	       controller.goTo(new UsersPlace("users"));
-           	    slideDrawerIfMobile();
+           	 controller.goTo(new UsersPlace("users"));
+           	slideDrawerIfMobile();
            	    
             }  
    });

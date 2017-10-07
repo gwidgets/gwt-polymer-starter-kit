@@ -4,20 +4,18 @@
   <inherits name='com.google.gwt.user.User' />     
   <inherits name='com.google.gwt.place.Place'/>
    <inherits name='com.google.gwt.activity.Activity' />                   
-  <inherits name='com.google.gwt.user.theme.standard.Standard' />
   <inherits name="com.vaadin.polymer.Elements"/>
+  <inherits name="dagger.Dagger" />
 
    <replace-with class="com.gwidgets.client.ClientFactoryImpl">
     <when-type-is class="com.gwidgets.client.ClientFactory"/>
    </replace-with>
 
   <entry-point class='com.gwidgets.client.PolymerStarter' />
-  
-  <set-property name="compiler.useSourceMaps" value="true"> 
-</set-property>
 
   <source path='client' />
   <source path='ui' />
+  <source path='di' />
    <source path='places' />
    <source path='activities' />
 
