@@ -100,13 +100,6 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					 <annotationProcessorPaths>
-            <path>
-              <groupId>com.google.dagger</groupId>
-              <artifactId>dagger-compiler</artifactId>
-              <version>${dollar}{dagger.version}</version>
-            </path>
-          </annotationProcessorPaths>
 				</configuration>
 			</plugin>
 		</plugins>
