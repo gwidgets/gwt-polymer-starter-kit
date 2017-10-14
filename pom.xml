@@ -17,7 +17,7 @@
 	</modules>
 
 	<properties>
-		<gwt.version>2.8.0</gwt.version>
+		<gwt.version>2.8.1</gwt.version>
 		<gwtPolymerVersion>1.7.0.0</gwtPolymerVersion>
 		<war>${project.build.directory}</war>
 		<webappDirectory>${project.build.directory}/${project.build.finalName}</webappDirectory>
